@@ -14,9 +14,10 @@ namespace Lab3_DangHoangXuanThai.ViewModels
         [Required]
         public string Date { get; set; }
         [Required]
-        public string Time { get; set; }
-        [Required]
         public byte Category { get; set; }
+        [Required]
+        [ValidTime]
+        public string Time { get; set; }
         public IEnumerable<Category> Categories { get; set; }
         public DateTime GetDateTime()
         {

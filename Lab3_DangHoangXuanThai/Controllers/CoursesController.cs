@@ -19,6 +19,7 @@ namespace Lab3_DangHoangXuanThai.Controllers
         // GET: Courses
         [Authorize]
         [HttpGet]
+        
         public ActionResult Create()
         {
             var viewModel = new CourseViewModels
@@ -30,6 +31,7 @@ namespace Lab3_DangHoangXuanThai.Controllers
 
         [HttpPost]
         [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CourseViewModels viewModel)
         {
             if(!ModelState.IsValid)
@@ -40,7 +42,7 @@ namespace Lab3_DangHoangXuanThai.Controllers
             var course = new Course
             {
                 LecturerId = User.Identity.GetUserId(),
-                DateTime = viewModel.GetDateTime(),
+                Datetime = viewModel.GetDateTime(),
                 CategoryId = viewModel.Category,
                 Place = viewModel.Place
             };

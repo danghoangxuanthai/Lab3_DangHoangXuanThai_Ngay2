@@ -17,7 +17,6 @@ namespace Lab3_DangHoangXuanThai.Models
         [StringLength(255)]
         public string Place { get; set; }
         public DateTime Datetime { get; set; }
-        public object DateTime { get; internal set; }
         public Category Category { get; set; }
         [Required]
         public byte CategoryId { get; set; }

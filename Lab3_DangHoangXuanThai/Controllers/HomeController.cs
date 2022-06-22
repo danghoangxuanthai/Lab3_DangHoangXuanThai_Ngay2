@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace Lab3_DangHoangXuanThai.Controllers
 {
@@ -18,6 +19,7 @@ namespace Lab3_DangHoangXuanThai.Controllers
   
         public ActionResult Index()
         {
+            var userId = User.Identity.GetUserId();
             var upcommingCourses = _dbContext.Courses
                 .Include(c => c.Lecturer)
                 .Include(c => c.Category)
